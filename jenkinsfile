@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('source code') {
             steps {
-                git branch: '*/master', url: 'https://github.com/chPooja0917/simple-node-js-react-npm-app.git'
+                git branch: 'master', url: 'https://github.com/chPooja0917/simple-node-js-react-npm-app.git'
             }
             
         }
