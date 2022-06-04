@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Archive and Test Results') {
             steps {
-               archiveArtifacts artifacts: '**/*.json', followSymlinks: false
+               archiveArtifacts artifacts: 'nodejs/*.tgz', followSymlinks: false
             }
         }
         stage ('Artifactory configuration') {
