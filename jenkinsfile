@@ -32,6 +32,26 @@ pipeline {
                archiveArtifacts artifacts: '**/*.json', followSymlinks: false
             }
         }
+        stage ('Artifactory configuration') {
+            steps {
+        rtNpmDeployer (
+    id: 'npmdeployer',
+    serverId: 'JFROG_DEPLOY',
+    repo: 'learn-npm-local',
+    // Attach custom properties to the published artifacts:
+   )
+            }
+        }   
+        stage('publish') {
+            steps {
+                 rtNpmPublish (
+        tool: 'NODEJS_HOME',
+        deployerId: 'npmdeployer',
+        project: 'nodejs-project'
+)
+            }
+        }
+        
                       
     }
 
