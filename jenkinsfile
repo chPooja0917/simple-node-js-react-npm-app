@@ -22,6 +22,11 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('Build the package') {
+            steps {
+                sh 'npm pack'
+            }
+        }
         stage('Archive and Test Results') {
             steps {
                archiveArtifacts artifacts: '**/*.json', followSymlinks: false
